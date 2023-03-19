@@ -34,7 +34,7 @@ mx-auto items-center pt-16"
       >
         {ProjectCardData.map((project, i) => (
           <ProjectCard
-            key={project.id}
+            key={project.i}
             img={project.img}
             projectName={project.name}
             description={project.description}
