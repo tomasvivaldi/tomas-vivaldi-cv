@@ -44,28 +44,6 @@ mx-auto items-center pt-6"
             jobDescription2={el.jobDescription2}
           />
         ))}
-
-        <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-40 backdrop-filter backdrop-blur-sm flex items-center justify-center"
-          onClick={() => setSelectedId(null)}
-        >
-          <div className="fixed z-50 p-10 bg-white w-full h-full overflow-auto">
-            {ExperienceCardData.map((el, index) => (
-              <ExperienceCard
-                key={index}
-                img={el.img}
-                title={el.title}
-                subtitle={el.subtitle}
-                startDate={el.startDate}
-                endDate={el.endDate}
-                techstack={el.techstack}
-                summaries={el.summaries}
-                jobDescription1={el.jobDescription1}
-                jobDescription2={el.jobDescription2}
-              />
-            ))}
-          </div>
-        </div>
       </div>
     </motion.div>
   );
