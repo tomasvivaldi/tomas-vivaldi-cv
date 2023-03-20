@@ -15,7 +15,7 @@
 //     <div
 //       className="w-screen flex-shrink-0 snap-center
 //         flex flex-col space-y-5 items-center justify-center
-//         p-6 md:p-12 xl:p-16 h-screen"
+//         p-6 md:p-12 xl:p-16 h-[700px]"
 //     >
 //       <Image
 //         className="h-[200px] w-[300px]"

@@ -23,9 +23,9 @@ const ContactMe = (props: Props) => {
 
   return (
     <motion.div
-      className="h-screen justify-between relative overflow-hidden flex flex-col text-center 
-md:text-left  max-w-7xl md:px-10 
-mx-auto items-center pt-6"
+      className="h-[700px] justify-around relative overflow-hidden flex flex-col text-center 
+md:text-left  max-w-7xl md:px-10 space-y-6
+mx-auto items-center pt-[55px]"
       initial={{
         opacity: 0,
       }}
@@ -35,28 +35,30 @@ mx-auto items-center pt-6"
       transition={{ duration: 1.5 }}
     >
       <div className=" text-gray-400 uppercase flex flex-col gap-3">
-        <h3 className="  tracking-[20px]  text-xl ">Contact Me</h3>
+        <h3 className=" text-center tracking-[20px] px-9 text-lg ">
+          Contact Me
+        </h3>
       </div>
-      <div className="flex flex-col space-y-8 px-3">
-        <h4 className=" text-3xl md:text-4xl font-semibold text-center">
+      <div className="w-full md:w-fit flex flex-col space-y-8 px-3">
+        <h4 className=" text-2xl sm:text-3xl md:text-4xl font-semibold text-center">
           I have got just what you need.{"  "}
           <span className="underline decoration-2 underline-offset-4 decoration-red-500/50">
             Let's Talk
           </span>
         </h4>
         <div
-          className="flex flex-col md:flex-row justify-between gap-12 md:gap-3
+          className="flex flex-row flex-wrap justify-around md:justify-between gap-12 md:gap-3
         order-2 md:order-1"
         >
-          <div className="flex items-center space-x-2 justify-center">
+          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
             <PhoneIcon className=" text-red-500/50 h-7 w-7 animate-pulse" />
-            <p className="text-base">+81 090-6653-9737</p>
+            <p className="text-xs hidden md:flex">+81 090-6653-9737</p>
           </div>
-          <div className="flex items-center space-x-2 justify-center">
+          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
             <EnvelopeIcon className=" text-red-500/50 h-7 w-7 animate-pulse" />
-            <p className="text-base">tms.vivaldi@gmail.com</p>
+            <p className="text-xs hidden md:flex">tms.vivaldi@gmail.com</p>
           </div>
-          <div className="flex items-center space-x-2 justify-center">
+          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
             <SocialIcon
               className=" cursor-pointer animate-pulse h-7 w-7"
               network="linkedin"
@@ -64,25 +66,26 @@ mx-auto items-center pt-6"
               bgColor="transparent"
               fgColor="rgb(239 68 68 / 0.4)"
             />
-            <p className="text-base">+123456789</p>
+            <p className="text-xs hidden md:flex">Tomas Vivaldi</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto "
+          className="flex flex-col space-y-2 w-full mx-auto 
+           px-3 md:px-0 "
         >
-          <div className="flex space-x-2">
+          <div className="flex w-full md:space-x-2 space-y-2 md:space-y-0 flex-col md:flex-row">
             <input
               {...register("name")}
               placeholder="Name"
-              className="contactInput"
+              className="contactInput w-full"
               type="text"
             />
             <input
               {...register("email")}
               placeholder="Email"
-              className="contactInput"
+              className="contactInput w-full"
               type="email"
             />
           </div>
@@ -98,7 +101,7 @@ mx-auto items-center pt-6"
             className="contactInput"
           />
           <button
-            className="bg-red-500/50 py-5 px-10 rounded-md font-bold
+            className="bg-red-500/50 py-3 md:py-5 px-10 rounded-md font-bold
           text-lg"
           >
             Submit

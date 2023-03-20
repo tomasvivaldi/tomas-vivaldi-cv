@@ -17,12 +17,12 @@ const SingleSkill = ({ percentage, img }: Props) => {
         height={55}
         src={img}
         className=" border border-gray-500 rounded-full object-fill 
-        w-[50px] md:w-[65px] h-[50px] md:h-[65px] xl:w-[70px] xl:h-[70px] filter group-hover:grayscale
+        w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[65px] md:h-[65px] filter group-hover:grayscale
         transition duration-200 ease-in-out m-1 "
       />
       <div
         className="absolute opacity-0 group-hover:opacity-80 transition 
-      duration-200 ease-in-out group-hover:bg-white w-[50px] md:w-[65px] h-[50px] md:h-[65px] xl:w-[70px] xl:h-[70px] 
+      duration-200 ease-in-out group-hover:bg-white w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[65px] md:h-[65px] 
       rounded-full z-0 m-1"
       >
         <div className="flex items-center justify-center h-full">

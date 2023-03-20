@@ -3,10 +3,18 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Head from "next/head";
 
 function Header() {
   return (
-    <header className=" sticky top-0 items-start py-2 px-5 max-w-7xl mx-auto z-20 ">
+    <header className=" sticky top-0 items-start py-2 px-3 max-w-7xl mx-auto z-20 ">
+      <Head>
+        <title>My Page Title</title>
+        <meta name="description" content="My page description." />
+        <meta name="keywords" content="my, page, keywords" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+      </Head>
       <div className="flex flex-row justify-between xl:items-center">
         <motion.div
           initial={{

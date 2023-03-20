@@ -24,29 +24,34 @@ export default function Home() {
 
       <Header />
 
-      <section id="hero" className=" snap-center">
+      <section id="hero" className="  snap-normal">
         <Hero />
       </section>
-
-      <section id="about" className="snap-center">
+      <div className="h-[25px] w-full" />
+      <section id="about" className="  snap-normal">
         <About />
       </section>
-
-      <section id="experience" className=" snap-center">
+      <div className="h-[25px] w-full" />
+      <section id="experience" className="  snap-normal">
         <WorkExperience />
       </section>
-
-      <section id="skills" className=" snap-center">
+      <div className="h-[25px] w-full" />
+      <section id="skills" className="  snap-normal">
         <Skills />
       </section>
-
+      <div className="h-[25px] w-full" />
       {/* copywrite  */}
-      {/* <section id="projects" className=" snap-center">
+      {/* <section id="projects" className="  snap-normal">
         <Projects />
-      </section> */}
-
-      <section id="contactme" className=" snap-center">
+      </section> 
+      <div className="h-[25px] w-full" />*/}
+      <section id="contactme" className="  snap-normal">
         <ContactMe />
+      </section>
+      <section id="copyright">
+        <p className=" text-center text-xs mb-6 text-gray-500">
+          © Tomas Vivaldi 2020. All Rights Reserved
+        </p>
       </section>
     </div>
   );

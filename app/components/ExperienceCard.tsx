@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 interface Props {
   img: string;
@@ -25,11 +26,31 @@ const ExperienceCard = ({
   jobDescription1,
   jobDescription2,
 }: Props) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    const userAgent =
+      typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+    setIsMobile(
+      Boolean(
+        userAgent.match(
+          /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+        )
+      )
+    );
+  }, []);
+
   return (
-    <article
+    <motion.article
+      onClick={() => setExpanded(!expanded)}
+      animate={{
+        width: expanded ? 800 : "calc(100vw - 4rem)",
+        height: expanded ? 800 : "calc(100vw - 4rem)",
+      }}
       className="relative flex flex-col py-6 gap-3 rounded-lg items-center flex-shrink-0
     w-full  md:w-[600px] xl:w-[900px] snap-center bg-gray-400/20
-     transition-opacity duration-200 overflow-hidden
+     transition-opacity duration-200 overflow-hidden px-3
      opacity-60 hover:opacity-100"
     >
       <img
@@ -40,20 +61,37 @@ const ExperienceCard = ({
       <div className="px-3 md:px-10 space-y-4 mx-1">
         <h4 className="text-4xl font-light">{title}</h4>
         <p className="text-lg font-bold uppercase">{subtitle}</p>
-        <div className="flex my-2 space-x-2 ml-2 flex-wrap">
-          {techstack.map((tech, index) => (
-            <a key={index} href={tech.url} target="_blank">
+
+        {isMobile ? (
+          <div className="flex my-2 space-x-2 ml-2 flex-wrap">
+            {techstack.map((tech, index) => (
               <Image
                 key={index}
-                className=" rounded-xl w-[25px] h-[25px] m-1"
+                className="rounded-xl w-[25px] h-[25px] m-1"
                 src={tech.src}
                 alt="image"
                 width={25}
                 height={25}
               />
-            </a>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex my-2 space-x-2 ml-2 flex-wrap">
+            {techstack.map((tech, index) => (
+              <a key={index} href={tech.url} target="_blank">
+                <Image
+                  key={index}
+                  className="rounded-xl w-[25px] h-[25px] m-1"
+                  src={tech.src}
+                  alt="image"
+                  width={25}
+                  height={25}
+                />
+              </a>
+            ))}
+          </div>
+        )}
+
         <div className=" space-x-6 flex ml-6 text-gray-300">
           <p className=" font-extralight text-left">
             Started work: {startDate}
@@ -106,7 +144,7 @@ const ExperienceCard = ({
           </div>
         </motion.div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

@@ -14,9 +14,9 @@ export default function Hero({}: Props) {
     delaySpeed: 2000,
   });
   return (
-    <div className=" h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+    <div className="relative h-[650px] flex flex-col items-center justify-center text-center  overflow-visible">
       <BackgroundCircles />
-      <div className=" space-y-3 z-20">
+      <div className=" absolute top-12 md:top-0 md:static space-y-6 z-20">
         <Image
           src="/images/pfp1.jpg"
           alt="Profile Picture"
@@ -29,11 +29,11 @@ export default function Hero({}: Props) {
             <span>{text}</span>
             <Cursor cursorColor="#FF0000" />
           </h1>
-          <h2 className="order-1 text-sm text-gray-400 tracking-[15px]">
+          <h2 className="order-1 w-full text-xs md:text-sm text-center text-gray-400 tracking-[15px] m-2">
             Software Engineer
           </h2>
 
-          <div className="order-3 pt-3 flex flex-col md:flex-row gap-6 flex-nowrap">
+          <div className="order-3 pt-3 flex flex-col md:flex-row gap-[15px] sm:gap-6 flex-nowrap">
             <a href="#about">
               <button className="heroButton">About</button>
             </a>
