@@ -3,8 +3,8 @@ export const ExperienceCardData = [
     img: "/images/sec7team.jpeg",
     title: "Systems Administrator Engineer",
     subtitle: "Tokyo Creation 株式会社",
-    startDate: "Jun 2022",
-    endDate: "Dec 2022",
+    startDate: "Jun 22",
+    endDate: "Dec 22",
     techstack: [
       { src: "/icons/github-icon.svg", url: "https://github.com/" },
 
@@ -66,7 +66,7 @@ export const ExperienceCardData = [
     img: "/images/ArkhonTech.svg",
     title: "Founding Member",
     subtitle: "Arkhon Tech",
-    startDate: "Dec 2021",
+    startDate: "Dec 21",
     endDate: "Present",
     techstack: [
       { src: "/icons/github-icon.svg", url: "https://github.com/" },
@@ -101,8 +101,8 @@ export const ExperienceCardData = [
     img: "/images/bosch.jpg",
     title: "Python Integration Engineer",
     subtitle: "Bosch Japan",
-    startDate: "Nov 2020",
-    endDate: " Oct 2021",
+    startDate: "Nov 20",
+    endDate: " Oct 21",
     techstack: [
       {
         src: "/icons/github-icon.svg",
@@ -149,8 +149,8 @@ export const ExperienceCardData = [
     img: "/images/shopify.svg",
     title: "Store Manager",
     subtitle: "Personal Shopify Store",
-    startDate: "Jun 2019",
-    endDate: "Feb 2020",
+    startDate: "Jun 19",
+    endDate: "Feb 20",
     techstack: [
       {
         src: "/icons/adobe-illustrator.svg",
@@ -177,8 +177,8 @@ export const ExperienceCardData = [
     img: "/images/freelance.png",
     title: "Freelance Web Developer",
     subtitle: "Front-End Web Developer",
-    startDate: "Apr 2019",
-    endDate: "Nov 2020",
+    startDate: "Apr 19",
+    endDate: "Nov 20",
     techstack: [
       {
         src: "/icons/github-icon.svg",

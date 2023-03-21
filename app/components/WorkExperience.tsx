@@ -3,15 +3,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ExperienceCard from "./ExperienceCard";
 import { ExperienceCardData } from "../data/ExperienceCardData";
+("");
+import style from "./WorkExperience.module.css";
 
 export default function WorkExperience() {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
     <motion.div
-      className="h-[700px] relative overflow-hidden flex flex-col text-center
-md:text-left  max-w-7xl md:px-10 justify-evenly
-mx-auto items-center pt-6"
+      className={style.Wrapper}
       initial={{
         opacity: 0,
       }}
@@ -21,9 +21,9 @@ mx-auto items-center pt-6"
       viewport={{ once: true }}
       transition={{ duration: 1.5 }}
     >
-      <h3 className="uppercase tracking-[20px] text-gray-400 text-xl ">
-        Experience
-      </h3>
+      <div className={style.title}>
+        <h3>Experience</h3>
+      </div>
 
       <div
         className="w-full flex space-x-5 overflow-x-scroll overflow-y-hidden

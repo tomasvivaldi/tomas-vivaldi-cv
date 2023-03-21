@@ -44,26 +44,28 @@ const ExperienceCard = ({
   return (
     <motion.article
       onClick={() => setExpanded(!expanded)}
+      //TODO: fix width in this animation for tablet and desktop
       animate={{
         width: expanded ? 800 : "calc(100vw - 4rem)",
-        height: expanded ? 800 : "calc(100vw - 4rem)",
+        height: expanded ? 800 : "calc(100vh - 7.5rem)",
       }}
-      className="relative flex flex-col py-6 gap-3 rounded-lg items-center flex-shrink-0
+      //TODO: add border-radius 12px in desktop
+      className="relative flex flex-col py-4 md:py-6 gap-3 rounded-xl items-center flex-shrink-0
     w-full  md:w-[600px] xl:w-[900px] snap-center bg-gray-400/20
      transition-opacity duration-200 overflow-hidden px-3
-     opacity-60 hover:opacity-100"
+     opacity-60 hover:opacity-100 "
     >
       <img
         className="w-[320px] h-[120px] xl:w-[420px] xl:h-[200px] rounded-xl object-cover"
         src={img}
         alt="image"
       />
-      <div className="px-3 md:px-10 space-y-4 mx-1">
-        <h4 className="text-4xl font-light">{title}</h4>
-        <p className="text-lg font-bold uppercase">{subtitle}</p>
+      <div className="px-3 md:px-10 space-y-2 md:space-y-4 mx-1">
+        <h4 className="text-lg md:text-4xl font-light">{title}</h4>
+        <p className="text-md font-bold uppercase">{subtitle}</p>
 
         {isMobile ? (
-          <div className="flex my-2 space-x-2 ml-2 flex-wrap">
+          <div className="flex my-1 space-x-2 ml-2 flex-wrap">
             {techstack.map((tech, index) => (
               <Image
                 key={index}
@@ -93,10 +95,8 @@ const ExperienceCard = ({
         )}
 
         <div className=" space-x-6 flex ml-6 text-gray-300">
-          <p className=" font-extralight text-left">
-            Started work: {startDate}
-          </p>
-          <p className=" font-extralight text-left">Ended: {endDate}</p>
+          <p className=" font-extralight text-left">Start: {startDate}</p>
+          <p className=" font-extralight text-left">End: {endDate}</p>
         </div>
 
         <ul
