@@ -7,7 +7,7 @@ type Props = {};
 export default function About({}: Props) {
   return (
     <motion.div
-      className="h-[700px] relative flex flex-col text-center 
+      className="h-[700px]  flex flex-col text-center 
       max-w-7xl px-10 
     mx-auto items-center gap-6 md:gap-20 pt-[55px] sm:pt-16"
       initial={{
@@ -19,6 +19,7 @@ export default function About({}: Props) {
       viewport={{ once: true }}
       transition={{ duration: 1.5 }}
     >
+      {" "}
       <h3 className="flex  uppercase tracking-[20px] text-center text-gray-400 text-xl lg:text-2xl ">
         About
       </h3>
