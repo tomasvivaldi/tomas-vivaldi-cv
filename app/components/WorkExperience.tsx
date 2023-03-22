@@ -26,7 +26,7 @@ export default function WorkExperience() {
       </h3>
 
       <div
-        className="w-full h-[580px] flex space-x-5 overflow-x-scroll overflow-y-hidden
+        className="w-full h-[580px] md:h-[650px] flex space-x-5 overflow-x-scroll overflow-y-hidden
        px-10 py-4 snap-x snap-mandatory scrollbar-thin
        scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 "
       >
