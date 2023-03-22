@@ -127,7 +127,7 @@ const ExperienceCard = ({
                 backgroundColor: "rgba(128, 128, 128, 0.8)",
                 width: 36,
                 height: 36,
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
+
                 position: "absolute",
                 transition: { duration: 0.2 },
               }}
@@ -197,7 +197,6 @@ const ExperienceCard = ({
                   opacity: [0, 0, 0, 0.3, 0.6, 1],
                   x: [0, 0, 10, -10, 1],
                   y: [0, 0, -10, 10, 1],
-                  backgroundColor: "rgba(128, 128, 128, 0.8)",
                 }
           }
           onClick={() => {
