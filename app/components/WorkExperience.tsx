@@ -26,9 +26,11 @@ export default function WorkExperience() {
       </h3>
 
       <div
-        className="w-full h-[580px] md:h-[650px] flex space-x-5 overflow-x-scroll overflow-y-hidden
-       px-10 py-4 snap-x snap-mandatory scrollbar-thin
-       scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 "
+        className="w-full h-[580px] md:h-[650px] flex space-x-5 md:space-x-10 overflow-x-scroll overflow-y-hidden
+       px-10 py-4 my-6 snap-x snap-mandatory scrollbar-thin
+       scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50
+        "
+        style={{ opacity: selectedId !== null ? 0.5 : 1 }}
       >
         {ExperienceCardData.map((el, index) => (
           <ExperienceCard
@@ -42,6 +44,7 @@ export default function WorkExperience() {
             summaries={el.summaries}
             jobDescription1={el.jobDescription1}
             jobDescription2={el.jobDescription2}
+            onSelect={() => setSelectedId(index)}
           />
         ))}
       </div>
