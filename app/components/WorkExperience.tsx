@@ -9,9 +9,9 @@ export default function WorkExperience() {
 
   return (
     <motion.div
-      className="h-[700px] overflow-hidden flex flex-col text-center
-md:text-left  max-w-7xl md:px-10 justify-evenly
-mx-auto items-center pt-6"
+      className="h-[calc(100vh - 3rem)] overflow-hidden flex flex-col text-center
+      md:text-left  max-w-7xl md:px-10 justify-evenly relative
+      mx-auto items-center pt-6"
       initial={{
         opacity: 0,
       }}
@@ -26,7 +26,7 @@ mx-auto items-center pt-6"
       </h3>
 
       <div
-        className="w-full h-[600px] flex space-x-5 overflow-x-scroll overflow-y-hidden
+        className="w-full h-[580px] flex space-x-5 overflow-x-scroll overflow-y-hidden
        px-10 py-4 snap-x snap-mandatory scrollbar-thin
        scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 "
       >
