@@ -47,7 +47,7 @@ const ExperienceCard = ({
       className="relative flex flex-col py-3  gap-3 rounded-lg items-center flex-shrink-0 
        max-w-[100px] h-full md:w-[600px] xl:w-[700px] snap-center bg-gray-400/20
      transition-opacity duration-200 overflow-hidden px-3  
-     opacity-80 sm:px-3 md:px-10 sm:space-y-2 md:space-y-4 mx-auto"
+     opacity-60 hover:opacity-100 sm:px-3 md:px-10 sm:space-y-2 md:space-y-4 mx-auto"
       style={{ width: "calc(100vw - 4rem)", maxWidth: "675px" }}
     >
       <img
