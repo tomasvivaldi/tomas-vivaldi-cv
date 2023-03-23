@@ -7,7 +7,10 @@ import Head from "next/head";
 
 function Header() {
   return (
-    <header className=" sticky top-0 items-start py-2 px-3 max-w-7xl mx-auto z-20 ">
+    <header
+      className="static sm:sticky top-0 items-start sm:px-3 w-full z-30 
+    backdrop-blur-md bg-[#262626]/80 border-b border-gray-400/80"
+    >
       <Head>
         <title>My Page Title</title>
         <meta name="description" content="My page description." />
@@ -15,7 +18,7 @@ function Header() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-      <div className="flex flex-row justify-between xl:items-center">
+      <div className="flex flex-row justify-between xl:items-center px-3 md:px-6 z-40">
         <motion.div
           initial={{
             x: -500,
@@ -37,6 +40,7 @@ function Header() {
             fgColor="gray"
             bgColor="transparent"
             url="https://linkedin.com/in/tomas-vivaldi-89475619a"
+            target="_blank"
           />
         </motion.div>
 
@@ -61,10 +65,14 @@ function Header() {
             network="email"
             fgColor="gray"
             bgColor="transparent"
+            url="#contactme"
           />
-          <p className=" uppercase hidden md:inline-flex text-sm text-gray-400">
+          <a
+            className=" uapercase hidden md:inline-flex text-sm text-gray-400"
+            href="#contactme"
+          >
             Get in Touch
-          </p>
+          </a>
         </motion.div>
       </div>
     </header>
