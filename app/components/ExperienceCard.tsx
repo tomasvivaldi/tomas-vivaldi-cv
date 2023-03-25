@@ -168,7 +168,7 @@ const ExperienceCard = ({
                       <h3 className="flex-nowrap justify-center md:mt-9 tracking-widest text-center text-lg -mx-2 font-semibold px-1 md:text-2xl">
                         What was I responsible for:
                       </h3>
-                      <p className="md:text-xl indent-6 md:indent-9 text-justify mx-3 md:mx-16">
+                      <p className="md:text-xl indent-6 md:indent-9 text-justify mx-3 sm:mx-16">
                         {jobDescription1}
                       </p>
                       <p className="md:text-xl indent-6 md:indent-9 text-justify mx-3 sm:mx-16">
@@ -213,13 +213,40 @@ const ExperienceCard = ({
             scale: 0.8,
           }}
           transition={{
-            duration: 0.5,
+            duration: 0.1,
           }}
-          className="absolute  right-0 top-0 rounded-lg w-9 h-9 animate-pulse md:w-12 md:h-12 
-              backdrop-blur-md  py-3 animate-none md:p-3 "
+          className="absolute  right-0 top-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-transparent"
         >
-          <div className="absolute bottom-0 left-0 h-4 w-4 m-2 border-b-2 border-l-2 border-b-red-500 border-l-red-500" />
-          <div className="absolute bottom-0 left-0 h-3 w-3 m-3 border-b-2 border-l-2 border-b-red-500 border-l-red-500" />
+          <motion.div
+            animate={{
+              opacity: [1, 0, 0, 1],
+            }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: 0.5,
+            }}
+            className="absolute  right-0 top-0 rounded-lg w-12 h-12 sm:w-16 sm:h-16 
+              backdrop-blur-md  py-3 animate-none md:p-3 bg-black/10"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="black"
+            className="w-7 h-7 sm:w-9 sm:h-9 absolute inset-0 m-auto "
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+            />
+          </svg>
+
+          <div className="absolute bottom-0 left-0 h-4 w-4 m-1 border-b-2 border-l-2 border-b-black border-l-black" />
+          <div className="absolute bottom-0 left-0 h-3 w-3 m-2 border-b-2 border-l-2 border-b-black border-l-black" />
         </motion.div>
       </div>
     </motion.article>
