@@ -13,8 +13,11 @@ function Header() {
     >
       <Head>
         <title>My Page Title</title>
-        <meta name="description" content="My page description." />
-        <meta name="keywords" content="my, page, keywords" />
+        <meta name="CV Website" content="Web design freelancer's CV Website " />
+        <meta
+          name="Web Developer"
+          content="Web developer, Web desing, desing, frontend, backend, full-stack"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
