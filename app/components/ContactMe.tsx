@@ -97,7 +97,7 @@ mx-auto items-center pt-[55px]"
           />
           <textarea
             {...register("message")}
-            placeholder="Messange"
+            placeholder="Message"
             className="contactInput"
           />
           <button

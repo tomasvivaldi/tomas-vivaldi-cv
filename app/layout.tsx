@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Wed Developer CV Website",
+  title: "Tomas Vivaldi - Expert Web Developer & Freelance Consultant",
   description:
-    "In this website I describe my experiences, showcase my CV and some of my skills",
+    "Tomas Vivaldi is a highly skilled web developer and freelance consultant, specializing in creating responsive, user-friendly websites and applications. Boost your online presence with custom web solutions tailored to your business needs. Partner with Tomas for exceptional results and outstanding service.",
 };
 
 export default function RootLayout({
