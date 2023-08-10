@@ -6,8 +6,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import WorkExperience from "./components/WorkExperience";
 import Skills from "./components/Skills";
-// import Projects from "./components/Projects";
 import ContactMe from "./components/ContactMe";
+import Projects from "./components/Projects";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,15 +36,14 @@ export default function Home() {
         <WorkExperience />
       </section>
       <div className="h-[25px] w-full" />
+      <section id="projects" className="  snap-normal">
+        <Projects />
+      </section>
+      <div className="h-[25px] w-full" />
       <section id="skills" className="  snap-normal">
         <Skills />
       </section>
       <div className="h-[25px] w-full" />
-      {/* copywrite  */}
-      {/* <section id="projects" className="  snap-normal">
-        <Projects />
-      </section> 
-      <div className="h-[25px] w-full" />*/}
       <section id="contactme" className="  snap-normal">
         <ContactMe />
       </section>
