@@ -11,7 +11,7 @@ export default function WorkExperience({}: Props) {
   return (
     <motion.div
       className="h-[700px] justify-evenly relative overflow-hidden flex flex-col text-center
-md:text-left  max-w-7xl md:px-10
+md:text-left w-full md:px-10
 mx-auto items-center pt-16"
       initial={{
         opacity: 0,

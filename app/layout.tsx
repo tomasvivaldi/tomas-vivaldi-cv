@@ -1,3 +1,4 @@
+import { EvervaultCard } from "./components/aceternity/Hover";
 import "./globals.css";
 
 export const metadata = {
@@ -13,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className="scrollbar
+     scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 snap-y 
+     snap-mandatory "
+      >
+        {children}
+      </body>
     </html>
   );
 }

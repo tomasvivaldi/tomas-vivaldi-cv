@@ -8,7 +8,7 @@ export default function WorkExperience() {
   return (
     <motion.div
       className="h-[calc(100vh - 3rem)] overflow-hidden flex flex-col text-center
-      md:text-left  max-w-7xl md:px-10 justify-evenly relative
+      md:text-left  w-full md:px-10 justify-evenly relative
       mx-auto items-center pt-6"
       initial={{
         opacity: 0,

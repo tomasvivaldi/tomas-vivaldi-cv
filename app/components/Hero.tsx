@@ -4,19 +4,19 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
-
+import { EvervaultCard } from "../components/aceternity/Hover";
 type Props = {};
 
 export default function Hero({}: Props) {
   const [text, count] = useTypewriter({
-    words: ["Developer", "Designer", "Creator"],
+    words: ["Developer", "Consultant", "Creator"],
     loop: true,
     delaySpeed: 2000,
   });
   return (
-    <div className="relative h-[650px] flex flex-col items-center justify-center text-center  overflow-visible">
+    <div className="absolute w-full h-[850px] flex flex-col items-center justify-center text-center  overflow-visible">
       <BackgroundCircles />
-      <div className=" absolute top-12 md:top-0 md:static space-y-6 z-20">
+      <div className=" absolute top-12 md:top-0 md:static space-y-6 ">
         <Image
           src="/images/pfp1.jpg"
           alt="Profile Picture"
@@ -29,11 +29,11 @@ export default function Hero({}: Props) {
             <span>{text}</span>
             <Cursor cursorColor="#FF0000" />
           </h1>
-          <h2 className="order-1 w-full text-xs md:text-sm text-center text-gray-400 tracking-[15px] m-2">
+          <h2 className="order-1 font-medium w-full text-xs md:text-sm text-center text-gray-400 tracking-[15px] m-2">
             Software Engineer
           </h2>
 
-          <div className="order-3 pt-3 flex flex-col md:flex-row gap-[15px] sm:gap-6 flex-nowrap">
+          <div className="z-20 order-3 pt-3 flex flex-col md:flex-row gap-[15px] sm:gap-6 flex-nowrap">
             <a href="#about">
               <button className="heroButton">About</button>
             </a>

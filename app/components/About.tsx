@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { TextReveal } from "./aceternity/TextReview";
 
 type Props = {};
 
 export default function About({}: Props) {
   return (
     <motion.div
-      className="h-[700px]  flex flex-col text-center 
-      max-w-7xl px-10 
-    mx-auto items-center gap-6 md:gap-20 pt-[55px] sm:pt-16"
+      className="h-fit z-50 flex flex-col text-center 
+       px-4 sm:px-10 w-[90%]
+    mx-auto items-center gap-6 md:gap-20 py-[55px] sm:py-44"
       initial={{
         opacity: 0,
       }}
@@ -19,9 +20,11 @@ export default function About({}: Props) {
       viewport={{ once: true }}
       transition={{ duration: 1.5 }}
     >
-      {" "}
-      <h3 className="flex  uppercase tracking-[20px] text-center text-gray-400 text-xl lg:text-2xl ">
-        About
+      <h3 className="flex items-center justify-center h-fit rounded-2xl w-full">
+        <TextReveal
+          text="You know the business"
+          revealText="I know the chemistry "
+        />
       </h3>
       <div className="flex flex-col gap-6  md:flex-row ">
         <motion.img
@@ -40,8 +43,8 @@ export default function About({}: Props) {
           className=" md:mb-0 flex-shrink-0 object-cover w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] 
             rounded-full md:w-[300px] md:h-[400px] md:rounded-2xl self-center "
         ></motion.img>
-        <div className="flex flex-col justify-evenly">
-          <div className=" space-y-5 px-0 md:px-10">
+        <div className="flex flex-col justify-evenly ">
+          <div className=" space-y-5 px-0 lg:px-10">
             <h4 className="text-3xl text-left font-semibold">
               Here is a{" "}
               <span className=" underline-offset-4 underline decoration-red-500/50">
@@ -49,7 +52,10 @@ export default function About({}: Props) {
               </span>{" "}
               Background
             </h4>
-            <p className=" text-xs sm:text-sm text-justify">
+            <p
+              className=" text-xs sm:text-base lg:text-lg
+             text-justify mx-auto sm:mx-0 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl"
+            >
               I'm Tomas Vivaldi, a software developer with over 4 years of
               experience in the field. I have developed my expertise in a number
               of programming languages over the course of my career, including
