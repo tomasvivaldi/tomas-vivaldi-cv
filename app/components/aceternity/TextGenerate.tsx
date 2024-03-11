@@ -44,8 +44,11 @@ export const TextGenerate = ({
 
   return (
     <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className="  text-slate-100 text-lg sm:text-3xl leading-snug tracking-widest px-4 sm:px-12 max-w-4xl">
+      <div className="mt-4 flex justify-start px-20">
+        <div
+          className=" mx-auto sm:mx-0 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl  w-full text-slate-100 text-2xl sm:text-3xl md:text-4xl leading-snug tracking-widest px-4 sm:px-12
+         "
+        >
           {renderWords()}
         </div>
       </div>

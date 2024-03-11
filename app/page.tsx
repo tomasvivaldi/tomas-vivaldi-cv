@@ -47,7 +47,7 @@ export default function Home() {
         <section id="hero" className=" relative min-h-screen   snap-normal">
           <Hero />
         </section>
-        <section id="about" className=" my-64 mb-10 snap-normal">
+        <section id="about" className="my-24 md:my-64 mb-10 snap-normal">
           <TextGenerate
             words={
               "I specialize in crafting immersive digital experiences as an independent consultant, holding the belief that every project presents a unique opportunity to deliver great digital products and create strong relationships."
@@ -58,11 +58,11 @@ export default function Home() {
           <About />
         </section>
       </EvervaultCard>
-      <div className="h-[25px] w-full" />
+
       <section id="experience" className="  snap-normal">
         <WorkExperience />
       </section>
-      <div className="h-[25px] w-full" />
+
       <section id="projects" className="  snap-normal">
         {/* <Projects /> */}
         <ProductParallax />
