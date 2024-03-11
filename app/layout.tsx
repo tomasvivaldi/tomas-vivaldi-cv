@@ -17,7 +17,7 @@ export default function RootLayout({
       <body
         className="scrollbar
      scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 snap-y 
-     snap-mandatory "
+     snap-mandatory bg-black"
       >
         {children}
       </body>
