@@ -2,16 +2,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+const NAV_ITEMS = [
+  { id: "about", label: "I · About" },
+  { id: "experience", label: "II · Experience" },
+  { id: "projects", label: "III · Projects" },
+  { id: "skills", label: "IV · Skills" },
+  { id: "contactme", label: "V · Contact" },
+] as const;
+
 export default function Hero() {
   const reduceMotion = useReducedMotion();
   const ease = [0.22, 1, 0.36, 1] as const;
-  const NAV_ITEMS = [
-    { id: "about", label: "I · About" },
-    { id: "experience", label: "II · Experience" },
-    { id: "projects", label: "III · Projects" },
-    { id: "skills", label: "IV · Skills" },
-    { id: "contactme", label: "V · Contact" },
-  ] as const;
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -137,7 +138,7 @@ export default function Hero() {
         aria-hidden="true"
         className="hidden md:block absolute inset-0 w-full h-full pointer-events-none select-none"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: reduceMotion ? 0.055 : 0.055 }}
+        whileInView={{ opacity: 0.055 }}
         viewport={{ once: true }}
         transition={{ duration: reduceMotion ? 0.4 : 1.5, delay: 0.4 }}
         xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +164,7 @@ export default function Hero() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              aria-current={isActive ? "page" : undefined}
+              aria-current={isActive ? true : undefined}
               className="font-[family-name:var(--font-dm-mono)] uppercase whitespace-nowrap transition-colors duration-200"
               style={{
                 fontSize: 8.5,
