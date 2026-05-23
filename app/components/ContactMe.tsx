@@ -1,116 +1,117 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { SocialIcon } from "react-social-icons";
+import { motion, useReducedMotion } from "framer-motion";
 
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
+const RING_CIRCUMFERENCE = 2 * Math.PI * 38;
 
-type Props = {};
+export default function ContactMe() {
+  const reducedMotion = useReducedMotion();
 
-const ContactMe = (props: Props) => {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:tms.vivaldi@gmail.com?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message}
-    %0D%0A%0D%0A( sent by ${formData.email} )`;
+  const containerVariants = {
+    hidden: { opacity: 0, y: reducedMotion ? 0 : 32 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: reducedMotion ? 0 : 32 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      },
+    },
   };
 
   return (
-    <motion.div
-      className="h-[700px] justify-around relative overflow-hidden flex flex-col text-center 
-md:text-left  max-w-7xl md:px-10 space-y-6
-mx-auto items-center pt-[55px]"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{ duration: 1.5 }}
+    <section
+      id="contact"
+      className="relative w-full bg-[var(--bg)] py-24 overflow-visible"
     >
-      <div className=" text-gray-400 uppercase flex flex-col gap-3">
-        <h3 className=" text-center tracking-[20px] px-9 text-lg ">
-          Contact Me
-        </h3>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <motion.svg
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+          fill="none"
+          aria-hidden="true"
+        >
+          <motion.circle
+            cx="40"
+            cy="40"
+            r="38"
+            stroke="var(--ink-mute)"
+            strokeWidth="1"
+            strokeDasharray={RING_CIRCUMFERENCE}
+            initial={{ strokeDashoffset: RING_CIRCUMFERENCE }}
+            whileInView={{ strokeDashoffset: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </motion.svg>
       </div>
-      <div className="w-full md:w-fit flex flex-col space-y-8 px-3">
-        <h4 className=" text-2xl sm:text-3xl md:text-4xl font-semibold text-center">
-          I have got just what you need.{"  "}
-          <span className="underline decoration-2 underline-offset-4 decoration-red-500/50">
-            Let's Talk
-          </span>
-        </h4>
-        <div
-          className="flex flex-row flex-wrap justify-around md:justify-between gap-12 md:gap-3
-        order-2 md:order-1"
-        >
-          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
-            <PhoneIcon className=" text-red-500/50 h-7 w-7 animate-pulse" />
-            <p className="text-xs hidden md:flex">+81 090-6653-9737</p>
-          </div>
-          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
-            <EnvelopeIcon className=" text-red-500/50 h-7 w-7 animate-pulse" />
-            <p className="text-xs hidden md:flex">tms.vivaldi@gmail.com</p>
-          </div>
-          <div className="flex items-center space-x-2 w-[50px] justify-center md:w-fit">
-            <SocialIcon
-              className=" cursor-pointer animate-pulse h-7 w-7"
-              network="linkedin"
-              url="https://linkedin.com/in/tomas-vivaldi-89475619a"
-              bgColor="transparent"
-              fgColor="rgb(239 68 68 / 0.4)"
-            />
-            <p className="text-xs hidden md:flex">Tomas Vivaldi</p>
-          </div>
-        </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-full mx-auto 
-           px-3 md:px-0 "
-        >
-          <div className="flex w-full md:space-x-2 space-y-2 md:space-y-0 flex-col md:flex-row">
-            <input
-              {...register("name")}
-              placeholder="Name"
-              className="contactInput w-full"
-              type="text"
-            />
-            <input
-              {...register("email")}
-              placeholder="Email"
-              className="contactInput w-full"
-              type="email"
-            />
-          </div>
-          <input
-            {...register("subject")}
-            placeholder="Subject"
-            className="contactInput"
-            type="text"
-          />
-          <textarea
-            {...register("message")}
-            placeholder="Message"
-            className="contactInput"
-          />
-          <button
-            className="bg-red-500/50 py-3 md:py-5 px-10 rounded-md font-bold
-          text-lg"
+      <motion.div
+        className="max-w-6xl mx-auto px-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-[52px_2fr_3fr] gap-0 relative">
+          <div className="hidden lg:block" />
+
+          <motion.div variants={childVariants} className="relative">
+            <motion.span
+              aria-hidden="true"
+              className="absolute top-0 left-0 select-none pointer-events-none leading-none text-[var(--ink)]"
+              style={{
+                fontFamily: "var(--font-cormorant), serif",
+                fontWeight: 300,
+                fontSize: "clamp(180px, 22vw, 340px)",
+                opacity: 0,
+              }}
+              animate={{ opacity: 0.03 }}
+              transition={{ duration: 1.5, delay: 0.4 }}
+            >
+              VI
+            </motion.span>
+
+            <div className="relative z-10">
+              {/* Left column content — Task 4 */}
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={childVariants}
+            className="relative mt-12 lg:mt-0"
           >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div className="h-1"></div>
-    </motion.div>
-  );
-};
+            <span
+              aria-hidden="true"
+              className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block"
+              style={{
+                fontFamily: "var(--font-dm-mono), monospace",
+                fontSize: "10px",
+                fontStyle: "italic",
+                color: "var(--ink-pale)",
+              }}
+            >
+              35.6762° N
+            </span>
 
-export default ContactMe;
+            {/* Form — Task 5 */}
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
