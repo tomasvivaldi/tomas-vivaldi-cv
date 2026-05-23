@@ -74,6 +74,143 @@ export default function Hero() {
           );
         })}
       </nav>
+      {/* ③ Ghost 01 */}
+      <span
+        aria-hidden="true"
+        className="hidden md:block font-[family-name:var(--font-cormorant)] absolute pointer-events-none select-none"
+        style={{
+          top: 36,
+          left: "48%",
+          fontWeight: 300,
+          fontSize: 340,
+          color: "var(--ink)",
+          opacity: 0.035,
+          lineHeight: 1,
+          zIndex: 0,
+        }}
+      >
+        01
+      </span>
+      {/* ④ Floating MMXXVI */}
+      <span
+        className="font-[family-name:var(--font-cormorant)] italic absolute md:bottom-[88px] bottom-[64px] md:left-[310px] left-6 md:text-[12px] text-[11px]"
+        style={{
+          color: "var(--ink-pale)",
+          letterSpacing: "0.12em",
+        }}
+      >
+        MMXXVI
+      </span>
+      {/* ⑤ Sideways role label */}
+      <span
+        aria-hidden="true"
+        className="hidden md:block font-[family-name:var(--font-dm-mono)] uppercase absolute lg:right-[228px] right-3"
+        style={{
+          top: 72,
+          transform: "rotate(90deg)",
+          transformOrigin: "right top",
+          fontSize: 8,
+          letterSpacing: "0.22em",
+          color: "var(--ink-pale)",
+          whiteSpace: "nowrap",
+          opacity: 0.75,
+        }}
+      >
+        Software Engineer
+      </span>
+      {/* Margin annotation */}
+      <span
+        className="hidden md:block font-[family-name:var(--font-cormorant)] italic absolute whitespace-nowrap"
+        style={{
+          bottom: 128,
+          right: 238,
+          fontSize: 10,
+          color: "var(--accent)",
+          opacity: 0.65,
+        }}
+      >
+        † first in JP
+      </span>
+      {/* ⑦ Index card */}
+      <div
+        className="absolute md:bottom-[-16px] bottom-2 md:left-[100px] left-4 md:right-auto right-4 md:w-[230px] w-auto"
+        style={{
+          background: "var(--surface)",
+          border: "1px solid rgba(28,24,16,0.1)",
+          padding: "13px 16px",
+          boxShadow: "3px 3px 0 rgba(28,24,16,0.05)",
+          zIndex: 2,
+        }}
+      >
+        <div
+          className="font-[family-name:var(--font-dm-mono)] uppercase"
+          style={{
+            fontSize: 7.5,
+            letterSpacing: "0.2em",
+            color: "var(--ink-mute)",
+            marginBottom: 5,
+          }}
+        >
+          Current
+        </div>
+        <div
+          className="font-[family-name:var(--font-dm-sans)]"
+          style={{
+            fontWeight: 300,
+            fontSize: 11,
+            color: "var(--ink-soft)",
+            lineHeight: 1.5,
+          }}
+        >
+          Founding Member · Arkhon Tech
+        </div>
+        <div
+          className="font-[family-name:var(--font-dm-sans)]"
+          style={{
+            fontWeight: 300,
+            fontSize: 10.5,
+            color: "var(--ink-mute)",
+            marginTop: 2,
+          }}
+        >
+          Tokyo, Japan
+        </div>
+      </div>
+      {/* ⑥ Ring crossing center/image boundary */}
+      <svg
+        aria-hidden="true"
+        className="hidden lg:block absolute pointer-events-none"
+        style={{
+          right: 210,
+          top: "50%",
+          transform: "translateY(-50%)",
+        }}
+        width="128"
+        height="128"
+        viewBox="0 0 128 128"
+        fill="none"
+      >
+        <circle cx="64" cy="64" r="60" stroke="#1c1810" strokeWidth="0.6" opacity="0.1" />
+        <circle cx="64" cy="64" r="46" stroke="#1c1810" strokeWidth="0.6" opacity="0.1" />
+        <circle cx="64" cy="64" r="32" stroke="#1c1810" strokeWidth="0.6" opacity="0.1" />
+        <circle cx="64" cy="64" r="18" stroke="#1c1810" strokeWidth="0.6" opacity="0.1" />
+      </svg>
+      {/* ⑧ Bottom boundary ring */}
+      <svg
+        aria-hidden="true"
+        className="absolute pointer-events-none"
+        style={{
+          bottom: -18,
+          left: "38%",
+        }}
+        width="44"
+        height="44"
+        viewBox="0 0 44 44"
+        fill="none"
+      >
+        <circle cx="22" cy="22" r="20" stroke="#1c1810" strokeWidth="0.6" opacity="0.12" />
+        <circle cx="22" cy="22" r="12" stroke="#1c1810" strokeWidth="0.6" opacity="0.12" />
+      </svg>
       {/* Left rail */}
       <div
         className="absolute left-0 top-0 h-full hidden md:flex flex-col items-center justify-between"
