@@ -4,7 +4,11 @@
 
 :root {
   --bg: #f5f0e8;
+  --surface: #ede7da;
+  --surface-2: #e4ddd0;
+  --surface-3: #d9d1c3;
   --ink: #1c1810;
+  --ink-soft: #6a5f4e;
   --ink-mute: #9a8e7a;
   --ink-pale: #bdb09e;
   --accent: #8c3b28;

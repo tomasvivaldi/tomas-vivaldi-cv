@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import Header from "./components/Header";
 import Hero from "./components/Hero";
-
-import { EvervaultCard } from "./components/aceternity/Hover";
 
 import About from "./components/About";
 import WorkExperience from "./components/WorkExperience";
@@ -14,7 +11,6 @@ import Projects from "./components/Projects";
 import { HighlightedProjects } from "./components/aceternity/HighlightedProjects";
 import { link } from "fs";
 import ProductParallax from "./components/aceternity/ProductParalax";
-import { TextGenerate } from "./components/aceternity/TextGenerate";
 
 const inter = Inter({ subsets: ["latin"] });
 const projects = [
@@ -37,27 +33,17 @@ const projects = [
 
 export default function Home() {
   return (
-    <div className="-z-50 bg-[rgb(19,19,19)] text-white w-full">
+    <div className="-z-50 w-full">
       <Head>
         <title>Tomas' Portfolio</title>
       </Head>
 
-      <Header />
-      <EvervaultCard>
-        <section id="hero" className=" relative min-h-screen   snap-normal">
-          <Hero />
-        </section>
-        <section id="about" className="my-24 md:my-64 mb-10 snap-normal">
-          <TextGenerate
-            words={
-              "I specialize in crafting immersive digital experiences as an independent consultant, holding the belief that every project presents a unique opportunity to deliver great digital products and create strong relationships."
-            }
-          />
-        </section>
-        <section id="about" className="  snap-normal">
-          <About />
-        </section>
-      </EvervaultCard>
+      <section id="hero" className="relative min-h-screen snap-normal">
+        <Hero />
+      </section>
+      <section id="about" className="  snap-normal">
+        <About />
+      </section>
 
       <section id="experience" className="  snap-normal">
         <WorkExperience />

@@ -1,5 +1,4 @@
 import { Cormorant_Garamond, DM_Mono, DM_Sans } from "next/font/google";
-import { EvervaultCard } from "./components/aceternity/Hover";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -38,7 +37,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmMono.variable} ${dmSans.variable}`}
     >
       <body
-        className="scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 snap-y snap-mandatory bg-black"
+        className="scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-red-500/50 snap-y snap-mandatory bg-[var(--bg)]"
       >
         {children}
       </body>
