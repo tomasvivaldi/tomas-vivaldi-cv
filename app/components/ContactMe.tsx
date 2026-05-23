@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 const RING_CIRCUMFERENCE = 2 * Math.PI * 38;
 
@@ -64,6 +65,190 @@ function LinkRow({ label, value, href, external }: LinkRowProps) {
         ↗
       </motion.span>
     </motion.a>
+  );
+}
+
+type Inputs = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type FormFieldProps = {
+  id: string;
+  label: string;
+  type?: "text" | "email";
+  rows?: number;
+  register: ReturnType<typeof useForm<Inputs>>["register"];
+  fieldName: keyof Inputs;
+  hasError: boolean;
+};
+
+function FormField({
+  id,
+  label,
+  type,
+  rows,
+  register,
+  fieldName,
+  hasError,
+}: FormFieldProps) {
+  const [focused, setFocused] = useState(false);
+  const reducedMotion = useReducedMotion();
+  const isTextarea = rows !== undefined;
+
+  const baseStyle: React.CSSProperties = {
+    fontFamily: "var(--font-dm-sans), sans-serif",
+    fontWeight: 300,
+    fontSize: "14px",
+    color: "var(--ink)",
+  };
+
+  return (
+    <div className="flex flex-col mb-8">
+      <label
+        htmlFor={id}
+        className="mb-2"
+        style={{
+          fontFamily: "var(--font-dm-mono), monospace",
+          fontSize: "10px",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          color: focused ? "var(--accent)" : "var(--ink-mute)",
+          transition: "color 0.2s",
+        }}
+      >
+        {label}
+      </label>
+
+      <div className="relative">
+        {isTextarea ? (
+          <textarea
+            id={id}
+            rows={rows}
+            aria-required="true"
+            {...register(fieldName, { required: true })}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            className="w-full bg-transparent outline-none pb-3 pt-1"
+            style={{ ...baseStyle, resize: "vertical" }}
+          />
+        ) : (
+          <input
+            id={id}
+            type={type ?? "text"}
+            aria-required="true"
+            {...register(fieldName, { required: true })}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            className="w-full bg-transparent outline-none pb-3 pt-1"
+            style={baseStyle}
+          />
+        )}
+
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
+          style={{
+            backgroundColor: hasError ? "var(--accent)" : "var(--rule)",
+            transition: hasError ? "none" : "background-color 0.6s",
+          }}
+        />
+
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-px bg-[var(--ink)] origin-left pointer-events-none"
+          animate={{ scaleX: focused ? 1 : 0 }}
+          transition={
+            reducedMotion
+              ? { duration: 0 }
+              : { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+          }
+        />
+      </div>
+    </div>
+  );
+}
+
+function ContactForm() {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const [errorFields, setErrorFields] = useState<Set<keyof Inputs>>(new Set());
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const subject = encodeURIComponent(`Contact from ${data.name}`);
+    const body = encodeURIComponent(`${data.message}\n\n(${data.email})`);
+    window.location.href = `mailto:tms.vivaldi@gmail.com?subject=${subject}&body=${body}`;
+  };
+
+  const onInvalid = (fieldErrors: Partial<Record<keyof Inputs, unknown>>) => {
+    const invalid = new Set<keyof Inputs>(
+      (Object.keys(fieldErrors) as Array<keyof Inputs>).filter(
+        (k) => fieldErrors[k]
+      )
+    );
+    setErrorFields(invalid);
+    setTimeout(() => setErrorFields(new Set()), 600);
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
+      className="flex flex-col"
+      style={{ transform: "translateX(var(--form-offset, 12px))" }}
+      noValidate
+    >
+      <FormField
+        id="contact-name"
+        label="NAME"
+        type="text"
+        register={register}
+        fieldName="name"
+        hasError={errorFields.has("name")}
+      />
+      <FormField
+        id="contact-email"
+        label="EMAIL"
+        type="email"
+        register={register}
+        fieldName="email"
+        hasError={errorFields.has("email")}
+      />
+      <FormField
+        id="contact-message"
+        label="MESSAGE"
+        rows={3}
+        register={register}
+        fieldName="message"
+        hasError={errorFields.has("message")}
+      />
+
+      <div className="flex justify-end mt-8">
+        <motion.button
+          type="submit"
+          whileHover="hover"
+          initial="rest"
+          className="flex items-center gap-1 bg-transparent border-none cursor-pointer focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-4"
+          style={{
+            fontFamily: "var(--font-cormorant), serif",
+            fontStyle: "italic",
+            fontWeight: 300,
+            fontSize: "18px",
+            color: "var(--accent)",
+          }}
+        >
+          <span>SEND</span>
+          <motion.span
+            variants={{
+              rest: { x: 0 },
+              hover: {
+                x: 6,
+                transition: { type: "spring", stiffness: 300, damping: 24 },
+              },
+            }}
+          >
+            →
+          </motion.span>
+        </motion.button>
+      </div>
+    </form>
   );
 }
 
@@ -208,7 +393,7 @@ export default function ContactMe() {
               35.6762° N
             </span>
 
-            {/* Form — Task 5 */}
+            <ContactForm />
           </motion.div>
         </div>
       </motion.div>
