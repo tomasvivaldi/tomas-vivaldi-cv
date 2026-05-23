@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #f5f0e8;
+  --ink: #1c1810;
+  --ink-mute: #9a8e7a;
+  --ink-pale: #bdb09e;
+  --accent: #8c3b28;
+  --rule: rgba(28, 24, 16, 0.08);
+  --form-offset: 12px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --form-offset: 6px;
+  }
+}
+
 @layer components {
   .heroButton {
     @apply px-6 py-2 border border-gray-500 rounded-full 
