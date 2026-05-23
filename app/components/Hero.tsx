@@ -1,12 +1,79 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Hero() {
+  const NAV_ITEMS = [
+    { id: "about", label: "I · About" },
+    { id: "experience", label: "II · Experience" },
+    { id: "projects", label: "III · Projects" },
+    { id: "skills", label: "IV · Skills" },
+    { id: "contactme", label: "V · Contact" },
+  ] as const;
+
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    for (const item of NAV_ITEMS) {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       className="relative w-full h-screen min-h-[640px] overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
+      <nav
+        aria-label="Section navigation"
+        className="absolute top-0 right-0 flex items-center md:left-[52px] left-0 z-10"
+        style={{
+          height: 48,
+          padding: "0 36px",
+          gap: 28,
+          borderBottom: "1px solid var(--rule)",
+          overflowX: "auto",
+        }}
+      >
+        {NAV_ITEMS.map((item) => {
+          const isActive = activeSection === item.id;
+          return (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              aria-current={isActive ? "page" : undefined}
+              className="font-[family-name:var(--font-dm-mono)] uppercase whitespace-nowrap transition-colors duration-200"
+              style={{
+                fontSize: 8.5,
+                letterSpacing: "0.14em",
+                color: isActive ? "var(--accent)" : "var(--ink-mute)",
+                borderBottom: isActive ? "1px solid var(--accent)" : "1px solid transparent",
+                paddingBottom: 2,
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) e.currentTarget.style.color = "var(--ink)";
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) e.currentTarget.style.color = "var(--ink-mute)";
+              }}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
       {/* Left rail */}
       <div
         className="absolute left-0 top-0 h-full hidden md:flex flex-col items-center justify-between"
