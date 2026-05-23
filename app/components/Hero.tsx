@@ -1,7 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+  const ease = [0.22, 1, 0.36, 1] as const;
   const NAV_ITEMS = [
     { id: "about", label: "I · About" },
     { id: "experience", label: "II · Experience" },
@@ -129,13 +132,17 @@ export default function Hero() {
       style={{ background: "var(--bg)" }}
     >
       {/* Asanoha ghost pattern */}
-      <svg
-        ref={asanohaRef}
+      <motion.svg
+        ref={asanohaRef as React.RefObject<SVGSVGElement>}
         aria-hidden="true"
-        className="hidden md:block lg:opacity-[0.055] md:opacity-[0.03] absolute inset-0 w-full h-full pointer-events-none select-none"
+        className="hidden md:block absolute inset-0 w-full h-full pointer-events-none select-none"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: reduceMotion ? 0.055 : 0.055 }}
+        viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0.4 : 1.5, delay: 0.4 }}
         xmlns="http://www.w3.org/2000/svg"
       />
-      <nav
+      <motion.nav
         aria-label="Section navigation"
         className="absolute top-0 right-0 flex items-center md:left-[52px] left-0 z-10"
         style={{
@@ -145,6 +152,10 @@ export default function Hero() {
           borderBottom: "1px solid var(--rule)",
           overflowX: "auto",
         }}
+        initial={{ opacity: 0, y: -8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0.4 : 0.6, delay: 0.1, ease }}
       >
         {NAV_ITEMS.map((item) => {
           const isActive = activeSection === item.id;
@@ -173,9 +184,9 @@ export default function Hero() {
             </a>
           );
         })}
-      </nav>
+      </motion.nav>
       {/* ③ Ghost 01 */}
-      <span
+      <motion.span
         aria-hidden="true"
         className="hidden md:block font-[family-name:var(--font-cormorant)] absolute pointer-events-none select-none"
         style={{
@@ -184,13 +195,16 @@ export default function Hero() {
           fontWeight: 300,
           fontSize: 340,
           color: "var(--ink)",
-          opacity: 0.035,
           lineHeight: 1,
           zIndex: 0,
         }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.035 }}
+        viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0.4 : 1.5, delay: 0.3 }}
       >
         01
-      </span>
+      </motion.span>
       {/* ④ Floating MMXXVI */}
       <span
         className="font-[family-name:var(--font-cormorant)] italic absolute md:bottom-[88px] bottom-[64px] md:left-[310px] left-6 md:text-[12px] text-[11px]"
@@ -232,7 +246,7 @@ export default function Hero() {
         † first in JP
       </span>
       {/* ⑦ Index card */}
-      <div
+      <motion.div
         className="absolute md:bottom-[-16px] bottom-2 md:left-[100px] left-4 md:right-auto right-4 md:w-[230px] w-auto"
         style={{
           background: "var(--surface)",
@@ -241,6 +255,10 @@ export default function Hero() {
           boxShadow: "3px 3px 0 rgba(28,24,16,0.05)",
           zIndex: 2,
         }}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0.4 : 0.6, delay: 0.7, ease }}
       >
         <div
           className="font-[family-name:var(--font-dm-mono)] uppercase"
@@ -275,7 +293,7 @@ export default function Hero() {
         >
           Tokyo, Japan
         </div>
-      </div>
+      </motion.div>
       {/* ⑥ Ring crossing center/image boundary */}
       <svg
         aria-hidden="true"
@@ -308,8 +326,30 @@ export default function Hero() {
         viewBox="0 0 44 44"
         fill="none"
       >
-        <circle cx="22" cy="22" r="20" stroke="#1c1810" strokeWidth="0.6" opacity="0.12" />
-        <circle cx="22" cy="22" r="12" stroke="#1c1810" strokeWidth="0.6" opacity="0.12" />
+        <motion.circle
+          cx="22"
+          cy="22"
+          r="20"
+          stroke="#1c1810"
+          strokeWidth="0.6"
+          opacity="0.12"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0.4 : 1.2, delay: 0.8, ease }}
+        />
+        <motion.circle
+          cx="22"
+          cy="22"
+          r="12"
+          stroke="#1c1810"
+          strokeWidth="0.6"
+          opacity="0.12"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0.4 : 1.2, delay: 0.9, ease }}
+        />
       </svg>
       {/* Left rail */}
       <div
@@ -346,13 +386,17 @@ export default function Hero() {
       </div>
 
       {/* Right image panel */}
-      <div
+      <motion.div
         className="absolute right-0 top-0 h-full hidden lg:flex items-center justify-center"
         style={{
           width: 220,
           background: "var(--surface-3)",
           borderLeft: "1px solid var(--rule)",
         }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: reduceMotion ? 0.4 : 0.8, delay: 0.6 }}
       >
         <div
           className="flex items-center justify-center"
@@ -378,19 +422,23 @@ export default function Hero() {
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
           </svg>
         </div>
-      </div>
+      </motion.div>
 
       {/* Center content */}
       <div
         className="absolute bottom-0 flex flex-col justify-center md:left-[52px] left-0 md:right-0 lg:right-[220px] right-0 md:px-9 px-6 md:py-12 py-10"
         style={{ top: 48 }}
       >
-        <h1
+        <motion.h1
           className="font-[family-name:var(--font-cormorant)] mb-7"
           style={{
             lineHeight: 0.88,
             marginLeft: "var(--name-bleed, -88px)",
           }}
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0.4 : 0.9, delay: 0.2, ease }}
         >
           <span
             className="block"
@@ -415,8 +463,8 @@ export default function Hero() {
           >
             Vivaldi
           </span>
-        </h1>
-        <p
+        </motion.h1>
+        <motion.p
           className="font-[family-name:var(--font-dm-sans)]"
           style={{
             fontSize: 12.5,
@@ -425,6 +473,10 @@ export default function Hero() {
             lineHeight: 1.65,
             maxWidth: 300,
           }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0.4 : 0.6, delay: 0.5, ease }}
         >
           Full-stack engineer · Blockchain · Game Systems · UI/UX
           <br />
@@ -439,7 +491,7 @@ export default function Hero() {
             Based in Tokyo&nbsp;
             <sup style={{ color: "var(--accent)", verticalAlign: "baseline" }}>†</sup>
           </em>
-        </p>
+        </motion.p>
       </div>
     </div>
   );
