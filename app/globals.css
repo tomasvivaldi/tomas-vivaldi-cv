@@ -16,9 +16,26 @@
   --form-offset: 12px;
 }
 
+:root {
+  --name-size: 96px;
+  --name-offset: 48px;
+  --name-bleed: -88px;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --name-size: 72px;
+    --name-offset: 32px;
+    --name-bleed: -48px;
+  }
+}
+
 @media (max-width: 767px) {
   :root {
     --form-offset: 6px;
+    --name-size: 56px;
+    --name-offset: 20px;
+    --name-bleed: -16px;
   }
 }
 

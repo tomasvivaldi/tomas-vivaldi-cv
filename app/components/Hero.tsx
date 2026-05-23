@@ -143,16 +143,67 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Center content (empty for now) */}
+      {/* Center content */}
       <div
-        className="absolute bottom-0"
-        style={{
-          top: 48,
-          left: 52,
-          right: 220,
-          padding: "48px 36px 40px 52px",
-        }}
-      />
+        className="absolute bottom-0 flex flex-col justify-center md:left-[52px] left-0 md:right-0 lg:right-[220px] right-0 md:px-9 px-6 md:py-12 py-10"
+        style={{ top: 48 }}
+      >
+        <h1
+          className="font-[family-name:var(--font-cormorant)] mb-7"
+          style={{
+            lineHeight: 0.88,
+            marginLeft: "var(--name-bleed, -88px)",
+          }}
+        >
+          <span
+            className="block"
+            style={{
+              fontWeight: 300,
+              fontSize: "var(--name-size, 96px)",
+              color: "var(--ink)",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Tomas
+          </span>
+          <span
+            className="block italic"
+            style={{
+              fontWeight: 300,
+              fontSize: "var(--name-size, 96px)",
+              color: "var(--ink)",
+              letterSpacing: "-0.02em",
+              marginLeft: "var(--name-offset, 48px)",
+            }}
+          >
+            Vivaldi
+          </span>
+        </h1>
+        <p
+          className="font-[family-name:var(--font-dm-sans)]"
+          style={{
+            fontSize: 12.5,
+            fontWeight: 300,
+            color: "var(--ink-soft)",
+            lineHeight: 1.65,
+            maxWidth: 300,
+          }}
+        >
+          Full-stack engineer · Blockchain · Game Systems · UI/UX
+          <br />
+          <em
+            className="font-[family-name:var(--font-cormorant)]"
+            style={{
+              fontStyle: "italic",
+              color: "var(--ink-pale)",
+              fontSize: 13,
+            }}
+          >
+            Based in Tokyo&nbsp;
+            <sup style={{ color: "var(--accent)", verticalAlign: "baseline" }}>†</sup>
+          </em>
+        </p>
+      </div>
     </div>
   );
 }
