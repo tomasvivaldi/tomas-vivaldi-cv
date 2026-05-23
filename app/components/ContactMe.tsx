@@ -4,6 +4,69 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const RING_CIRCUMFERENCE = 2 * Math.PI * 38;
 
+type LinkRowProps = {
+  label: string;
+  value: string;
+  href: string;
+  external?: boolean;
+};
+
+function LinkRow({ label, value, href, external }: LinkRowProps) {
+  return (
+    <motion.a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className="grid items-center py-4 border-b border-[var(--rule)] no-underline cursor-pointer"
+      style={{ gridTemplateColumns: "100px 1fr auto" }}
+      whileHover="hover"
+      initial="rest"
+    >
+      <span
+        style={{
+          fontFamily: "var(--font-dm-mono), monospace",
+          fontSize: "10px",
+          color: "var(--ink-mute)",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+        }}
+      >
+        {label}
+      </span>
+
+      <motion.span
+        style={{
+          fontFamily: "var(--font-dm-sans), sans-serif",
+          fontWeight: 300,
+          fontSize: "15px",
+          color: "var(--ink)",
+        }}
+        variants={{
+          rest: { x: 0 },
+          hover: {
+            x: 4,
+            transition: { type: "spring", stiffness: 300, damping: 24 },
+          },
+        }}
+      >
+        {value}
+      </motion.span>
+
+      <motion.span
+        style={{ color: "var(--accent)" }}
+        variants={{
+          rest: { opacity: 0 },
+          hover: {
+            opacity: 1,
+            transition: { type: "spring", stiffness: 300, damping: 24 },
+          },
+        }}
+      >
+        ↗
+      </motion.span>
+    </motion.a>
+  );
+}
+
 export default function ContactMe() {
   const reducedMotion = useReducedMotion();
 
@@ -87,7 +150,44 @@ export default function ContactMe() {
             </motion.span>
 
             <div className="relative z-10">
-              {/* Left column content — Task 4 */}
+              <h2
+                className="-ml-6 mb-16 text-[var(--ink)]"
+                style={{
+                  fontFamily: "var(--font-cormorant), serif",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  fontSize: "64px",
+                  lineHeight: 1,
+                }}
+              >
+                Get in touch
+              </h2>
+
+              <div className="flex flex-col">
+                <LinkRow
+                  label="EMAIL"
+                  value="tms.vivaldi@gmail.com"
+                  href="mailto:tms.vivaldi@gmail.com"
+                />
+                <LinkRow
+                  label="LINKEDIN"
+                  value="Tomas Vivaldi"
+                  href="https://linkedin.com/in/tomas-vivaldi-89475619a"
+                  external
+                />
+              </div>
+
+              <p
+                aria-hidden="true"
+                className="mt-4 pl-6 italic"
+                style={{
+                  fontFamily: "var(--font-dm-mono), monospace",
+                  fontSize: "9px",
+                  color: "var(--ink-pale)",
+                }}
+              >
+                * available for remote †
+              </p>
             </div>
           </motion.div>
 
