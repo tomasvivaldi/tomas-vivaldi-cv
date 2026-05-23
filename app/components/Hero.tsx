@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const NAV_ITEMS = [
@@ -11,6 +11,99 @@ export default function Hero() {
   ] as const;
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const asanohaRef = useRef<SVGSVGElement | null>(null);
+
+  useEffect(() => {
+    const svg = asanohaRef.current;
+    if (!svg) return;
+    if (window.innerWidth < 768) return;
+
+    const ns = "http://www.w3.org/2000/svg";
+    const R = 60;
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function build() {
+      if (!svg) return;
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      const svgLeft = svg.getBoundingClientRect().left;
+      const clipW = Math.max(0, window.innerWidth / 3 - svgLeft);
+
+      const defs = document.createElementNS(ns, "defs");
+      const clip = document.createElementNS(ns, "clipPath");
+      clip.setAttribute("id", "hero-asanoha-clip");
+      const cr = document.createElementNS(ns, "rect");
+      cr.setAttribute("x", "0");
+      cr.setAttribute("y", "0");
+      cr.setAttribute("width", clipW.toFixed(1));
+      cr.setAttribute("height", "9999");
+      clip.appendChild(cr);
+      defs.appendChild(clip);
+      svg.appendChild(defs);
+
+      const g = document.createElementNS(ns, "g");
+      g.setAttribute("clip-path", "url(#hero-asanoha-clip)");
+      svg.appendChild(g);
+
+      function hex(cx: number, cy: number) {
+        const V: Array<[number, number]> = [];
+        const M: Array<[number, number]> = [];
+        const IV: Array<[number, number]> = [];
+        for (let i = 0; i < 6; i++) {
+          const a = (i * Math.PI) / 3;
+          V.push([cx + R * Math.cos(a), cy + R * Math.sin(a)]);
+        }
+        for (let i = 0; i < 6; i++) {
+          M.push([
+            (V[i][0] + V[(i + 1) % 6][0]) / 2,
+            (V[i][1] + V[(i + 1) % 6][1]) / 2,
+          ]);
+          IV.push([
+            cx + (R / 2) * Math.cos((i * Math.PI) / 3),
+            cy + (R / 2) * Math.sin((i * Math.PI) / 3),
+          ]);
+        }
+        const lines: Array<[[number, number], [number, number]]> = [];
+        for (let i = 0; i < 6; i++) {
+          lines.push([V[i], V[(i + 1) % 6]]);
+          lines.push([[cx, cy], V[i]]);
+          lines.push([M[i], IV[i]]);
+          lines.push([M[i], IV[(i + 1) % 6]]);
+        }
+        for (const [p1, p2] of lines) {
+          const l = document.createElementNS(ns, "line");
+          l.setAttribute("x1", p1[0].toFixed(1));
+          l.setAttribute("y1", p1[1].toFixed(1));
+          l.setAttribute("x2", p2[0].toFixed(1));
+          l.setAttribute("y2", p2[1].toFixed(1));
+          l.setAttribute("stroke", "#1c1810");
+          l.setAttribute("stroke-width", "0.5");
+          g.appendChild(l);
+        }
+      }
+
+      const colStep = R * 1.5;
+      const rowStep = R * Math.sqrt(3);
+      for (let col = -1; col < 8; col++) {
+        for (let row = -1; row < 12; row++) {
+          hex(col * colStep, row * rowStep + (col % 2) * (rowStep / 2));
+        }
+      }
+    }
+
+    build();
+
+    function onResize() {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(build, 150);
+    }
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (resizeTimer) clearTimeout(resizeTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,6 +128,13 @@ export default function Hero() {
       className="relative w-full h-screen min-h-[640px] overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
+      {/* Asanoha ghost pattern */}
+      <svg
+        ref={asanohaRef}
+        aria-hidden="true"
+        className="hidden md:block lg:opacity-[0.055] md:opacity-[0.03] absolute inset-0 w-full h-full pointer-events-none select-none"
+        xmlns="http://www.w3.org/2000/svg"
+      />
       <nav
         aria-label="Section navigation"
         className="absolute top-0 right-0 flex items-center md:left-[52px] left-0 z-10"
