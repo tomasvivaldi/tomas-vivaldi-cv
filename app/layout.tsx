@@ -21,9 +21,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Tomas Vivaldi - Expert Web Developer & Freelance Consultant",
+  title: "Tomas Vivaldi - Full Stack & AI Software Engineer",
   description:
-    "Tomas Vivaldi is a highly skilled web developer and freelance consultant, specializing in creating responsive, user-friendly websites and applications. Boost your online presence with custom web solutions tailored to your business needs. Partner with Tomas for exceptional results and outstanding service.",
+    "Tomas Vivaldi is a full-stack software engineer with 5+ years of experience in Python, TypeScript and AWS, building trading systems for financial markets (high-frequency trading on B3), AI agents and automations, web apps and back-ends for international clients.",
 };
 
 export default function RootLayout({

@@ -281,7 +281,7 @@ export default function Hero() {
             lineHeight: 1.5,
           }}
         >
-          Founding Member · Arkhon Tech
+          Full Stack &amp; AI Engineer · Independent
         </div>
         <div
           className="font-[family-name:var(--font-dm-sans)]"
@@ -292,7 +292,7 @@ export default function Hero() {
             marginTop: 2,
           }}
         >
-          Tokyo, Japan
+          Remote · Tokyo, Japan
         </div>
       </motion.div>
       {/* ⑥ Ring crossing center/image boundary */}
@@ -479,7 +479,7 @@ export default function Hero() {
           viewport={{ once: true }}
           transition={{ duration: reduceMotion ? 0.4 : 0.6, delay: 0.5, ease }}
         >
-          Full-stack engineer · Blockchain · Game Systems · UI/UX
+          Full-stack engineer · Trading Systems · AI Engineering · Automation
           <br />
           <em
             className="font-[family-name:var(--font-cormorant)]"

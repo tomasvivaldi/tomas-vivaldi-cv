@@ -65,7 +65,7 @@ export default function Home() {
 
       <section id="copyright">
         <p className=" text-center text-xs mb-6 text-gray-500 py-2">
-          © Tomas Vivaldi 2023. All Rights Reserved
+          © Tomas Vivaldi 2026. All Rights Reserved
         </p>
       </section>
     </div>

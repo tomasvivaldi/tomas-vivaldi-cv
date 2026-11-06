@@ -5,10 +5,23 @@ import { TextReveal } from "./aceternity/TextReview";
 
 type Props = {};
 
+const WHAT_I_BUILD = [
+  "Trading systems for B3 and other markets: high-frequency and algorithmic trading, order execution, and risk controls such as exposure and daily-loss limits, drawdown kill switches, and order and position reconciliation",
+  "Backtesting and research tooling: backtest, shadow, paper and live modes running on the same code, and quantitative strategy research with Sharpe and P&L measured net of fees",
+  "AI automations: AI agents with MCP and tool calling (Claude Agent SDK), Slack assistants with guardrails, and LLM pipelines with multi-model routing and provider fallback",
+  "Programmatic automations: trading bots, data-driven workflows, scheduled jobs and integrations between APIs, databases and internal tools",
+  "Web apps and dashboards: internal operations panels, company websites and full-stack products in React, Next.js, Node.js and Tailwind CSS",
+  "Back-ends and APIs: REST and GraphQL services in Python, TypeScript, FastAPI and Express, with ledgers, reconciliation, idempotency and automated test suites",
+  "Cloud and infrastructure: serverless services on AWS (Lambda, DynamoDB, S3) and GCP, plus Docker and Kubernetes",
+];
+
+const textClass =
+  "text-xs sm:text-base lg:text-lg mx-auto sm:mx-0 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl";
+
 export default function About({}: Props) {
   return (
     <motion.div
-      className="h-fit z-50 flex flex-col text-center 
+      className="h-fit z-50 flex flex-col text-center
        px-4 sm:px-10 w-[90%]
     mx-auto items-center gap-6 md:gap-20 py-[55px] sm:py-44"
       initial={{
@@ -40,7 +53,7 @@ export default function About({}: Props) {
           transition={{ duration: 1.5 }}
           src="/images/about1.jpg"
           alt="About Picture"
-          className=" md:mb-0 flex-shrink-0 object-cover w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] 
+          className=" md:mb-0 flex-shrink-0 object-cover w-[100px] h-[100px] sm:w-[150px] sm:h-[150px]
             rounded-full md:w-[300px] md:h-[400px] md:rounded-2xl self-center "
         ></motion.img>
         <div className="flex flex-col justify-evenly ">
@@ -52,24 +65,30 @@ export default function About({}: Props) {
               </span>{" "}
               Background
             </h4>
-            <p
-              className=" text-xs sm:text-base lg:text-lg
-             text-justify mx-auto sm:mx-0 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl"
+            <p className={`${textClass} text-justify`}>
+              I'm Tomas Vivaldi, a full-stack software engineer with 5+ years
+              of experience in Python, TypeScript and AWS, focused on trading
+              systems for financial markets: high-frequency trading (HFT) on
+              B3, Brazil's stock exchange, algorithmic trading and prediction
+              markets, plus AI engineering and automation. I worked as a
+              back-end engineer on Japan's first blockchain-based first-person
+              shooter at Tokyo Creation and as a Python integration engineer on
+              autonomous-vehicle routing at Bosch Japan. Today I work as an
+              independent consultant for international clients, using
+              AI-assisted development (Claude Code, Codex, Cursor) every day.
+            </p>
+            <h5 className="text-xl text-left font-semibold">What I build</h5>
+            <ul
+              className={`${textClass} list-disc list-outside pl-5 space-y-2 text-left`}
             >
-              I'm Tomas Vivaldi, a software developer with over 4 years of
-              experience in the field. I have developed my expertise in a number
-              of programming languages over the course of my career, including
-              Python, JavaScript, TypeScript, and SQL, among others.
-              Having worked on a variety of projects ranging from front-end web
-              development to software logic development. I take great
-              satisfaction in my ability to work well with cross-functional
-              teams and explain difficult technical topics to non-technical
-              stakeholders. I have expertise working with customers and other
-              involved parties to ensure that project goals are reached and
-              expectations are exceeded from my work at both smaller start-ups
-              and renowned organizations like Bosch Japan. I take part in online
-              coding contests and hackathons since I'm constantly looking for
-              new challenges and educational opportunities.
+              {WHAT_I_BUILD.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className={`${textClass} text-justify`}>
+              B.Eng. in Mechanical Engineering, Yokohama National University.
+              Native Portuguese and English, fluent Japanese, intermediate
+              German.
             </p>
           </div>
         </div>
