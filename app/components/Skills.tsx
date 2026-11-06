@@ -11,7 +11,7 @@ type Props = {
 export default function ({ directionLeft }: Props) {
   return (
     <motion.div
-      className="h-[700px] relative overflow-hidden
+      className="min-h-[700px] pb-28 relative overflow-hidden
        flex flex-col text-center md:text-left  max-w-7xl md:px-10 
 mx-auto items-center pt-[55px] sm:pt-16 lg:gap-16"
       initial={{

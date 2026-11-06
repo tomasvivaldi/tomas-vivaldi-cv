@@ -118,7 +118,7 @@ const ExperienceCard = ({
               animate={{
                 width: "100%",
                 height: "100%",
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                backgroundColor: "rgba(245, 240, 232, 0.97)",
                 position: "absolute",
                 transition: { duration: 0.5 },
               }}
@@ -162,8 +162,8 @@ const ExperienceCard = ({
                     transition={{ duration: 1.5 }}
                   >
                     <div
-                      className="text-left font-light text-base m-4 flex-col flex gap-6 md:gap-9 
-              h-fit overflow-x-clip bg-transparent "
+                      className="text-left font-light text-base m-4 flex-col flex gap-6 md:gap-9
+              h-fit overflow-x-clip bg-transparent text-[var(--ink)]"
                     >
                       <h3 className="flex-nowrap justify-center md:mt-9 tracking-widest text-center text-lg -mx-2 font-semibold px-1 md:text-2xl">
                         What was I responsible for:

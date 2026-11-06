@@ -78,14 +78,9 @@ export const TextReveal = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute bg-[rgb(19,19,19)] z-20  will-change-transform rounded-2xl "
+          className="absolute bg-[var(--bg)] z-20  will-change-transform"
         >
-          <p
-            style={{
-              textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
-            }}
-            className="text-[1.5rem] sm:text-[3rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300"
-          >
+          <p className="text-[1.5rem] sm:text-[3rem] py-10 font-[family-name:var(--font-cormorant)] italic font-light text-[var(--accent)]">
             {revealText}
           </p>
         </motion.div>
@@ -96,11 +91,11 @@ export const TextReveal = ({
             opacity: widthPercentage > 0 ? 1 : 0,
           }}
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="h-40 w-[8px] bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+          className="h-40 w-px bg-gradient-to-b from-transparent via-[var(--ink)] to-transparent absolute z-50 will-change-transform"
         ></motion.div>
 
         <div className=" overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-base text-[1.5rem] sm:text-[3rem] py-10 font-bold bg-clip-text text-transparent bg-slate-200">
+          <p className="text-[1.5rem] sm:text-[3rem] py-10 font-[family-name:var(--font-cormorant)] font-light text-[var(--ink-mute)]">
             {text}
           </p>
           <MemoizedStars />
@@ -135,7 +130,7 @@ const Stars = () => {
             left: `${random() * 100}%`,
             width: `2px`,
             height: `2px`,
-            backgroundColor: "white",
+            backgroundColor: "var(--ink-mute)",
             borderRadius: "50%",
             zIndex: 1,
           }}
